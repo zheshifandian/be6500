@@ -118,6 +118,11 @@ $(call Package/ath12k-wifi-default)
     TITLE:=board-2.bin for WF672B
 endef
 
+define Package/ath12k-wifi-gl-be6500
+$(call Package/ath12k-wifi-default)
+	TITLE:=board-2.bin for GL-BE6500
+endef
+
 define Package/ath12k-wifi-cig-wf189/install
 	$(INSTALL_DIR) $(1)/lib/firmware/ath12k/QCN92XX/hw1.0/
 	$(INSTALL_DIR) $(1)/lib/firmware/ath12k/IPQ5332/hw1.0/
@@ -247,6 +252,13 @@ define Package/ath12k-wifi-cig-wf672b/install
 	$(INSTALL_DATA) ./board-2.bin.wf672b-us.IPQ5332 $(1)/lib/firmware/ath12k/IPQ5332/hw1.0/board-2.bin.US
 endef
 
+define Package/ath12k-wifi-gl-be6500/install
+	$(INSTALL_DIR) $(1)/lib/firmware/ath12k/QCN92XX/hw1.0/
+	$(INSTALL_DIR) $(1)/lib/firmware/ath12k/IPQ5332/hw1.0/
+	$(INSTALL_DATA) ./board-2.bin.gl-be6500.QCN92XX $(1)/lib/firmware/ath12k/QCN92XX/hw1.0/board-2.bin
+	$(INSTALL_DATA) ./board-2.bin.gl-be6500.IPQ5332 $(1)/lib/firmware/ath12k/IPQ5332/hw1.0/board-2.bin
+endef
+
 $(eval $(call BuildPackage,ath12k-wifi-cig-wf189))
 $(eval $(call BuildPackage,ath12k-wifi-edgecore-eap105))
 $(eval $(call BuildPackage,ath12k-wifi-emplus-wap7635))
@@ -255,6 +267,7 @@ $(eval $(call BuildPackage,ath12k-wifi-sonicfi-rap750e-h))
 $(eval $(call BuildPackage,ath12k-wifi-sonicfi-rap750e-s))
 $(eval $(call BuildPackage,ath12k-wifi-sonicfi-rap750w-311a))
 $(eval $(call BuildPackage,ath12k-wifi-cig-wf189w))
+$(eval $(call BuildPackage,ath12k-wifi-gl-be6500))
 $(eval $(call BuildPackage,ath12k-wifi-cig-wf189h))
 $(eval $(call BuildPackage,ath12k-wifi-sercomm-ap72tip))
 $(eval $(call BuildPackage,ath12k-wifi-sercomm-ap72tip-v4))

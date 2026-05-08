@@ -327,6 +327,7 @@ platform_do_upgrade() {
 	asterfusion,AP7330|\
 	zyxel,nwa130be|\
 	zyxel,nwa210be|\
+	glinet,gl-be6500|\
 	zyxel,nwa50be)
 		nand_upgrade_tar "$1"
 		;;
